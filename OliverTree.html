@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oliver Tree - English Presentation</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #e8dcc2;
+            color: #211f1a;
+            line-height: 1.7;
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #171813;
+            padding: 15px 0;
+            border-bottom: 4px solid #6b7b3a;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 12px;
+        }
+
+        nav a {
+            color: #eee5cf;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 18px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #6b7b3a;
+            color: white;
+        }
+
+        /* HERO */
+        header {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(55, 65, 30, 0.82),
+                    rgba(24, 25, 19, 0.95)
+                ),
+                #556b2f;
+
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero {
+            max-width: 900px;
+        }
+
+        .patch {
+            display: inline-block;
+            background: #c3b091;
+            color: #171813;
+            padding: 8px 20px;
+            border: 2px solid #171813;
+            border-radius: 4px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            box-shadow: 5px 5px 0 #171813;
+        }
+
+        header h1 {
+            font-size: 5rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 5px 5px 0 #171813;
+        }
+
+        header p {
+            font-size: 1.4rem;
+            color: #eee5cf;
+        }
+
+        .jacket-line {
+            width: 180px;
+            height: 6px;
+            background: #b86b35;
+            margin: 25px auto;
+            border-radius: 5px;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 80px 10%;
+        }
+
+        section:nth-child(even) {
+            background: #d6c7a8;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: #3f4f25;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title span {
+            display: block;
+            width: 80px;
+            height: 5px;
+            background: #b86b35;
+            margin: 12px auto;
+        }
+
+        /* TEXT + IMAGE */
+        .content-box {
+            max-width: 1100px;
+            margin: 0 auto 30px auto;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background: #f1eadb;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 10px solid #556b2f;
+            box-shadow: 8px 8px 0 #3b3528;
+        }
+
+        .content-box.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .content-text {
+            flex: 1;
+        }
+
+        .content-text p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            color: #556b2f;
+            font-weight: bold;
+        }
+
+        /* IMAGE BOX */
+        .image-box {
+            flex: 0 0 350px;
+            height: 260px;
+            border: 5px solid #171813;
+            background: #c3b091;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(23, 24, 19, 0.85);
+            color: #eee5cf;
+            text-align: center;
+            padding: 6px;
+            font-weight: bold;
+        }
+
+        /* MUSIC */
+        .music-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .music-card {
+            background: #3f4f25;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            border: 4px solid #171813;
+            box-shadow: 7px 7px 0 #b86b35;
+            transition: 0.3s;
+        }
+
+        .music-card:hover {
+            transform: translateY(-8px);
+            background: #556b2f;
+        }
+
+        .music-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 3px solid #171813;
+            margin-bottom: 15px;
+        }
+
+        .music-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #f1eadb;
+        }
+
+        .music-card p {
+            color: #dcd3bd;
+        }
+
+        /* STYLE */
+        .style-box {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .style-item {
+            background: #171813;
+            color: #f1eadb;
+            padding: 20px;
+            text-align: center;
+            border-radius: 6px;
+            border-top: 6px solid #6b7b3a;
+            transition: 0.3s;
+        }
+
+        .style-item:hover {
+            transform: scale(1.04);
+            border-top-color: #b86b35;
+        }
+
+        .style-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 3px solid #6b7b3a;
+            margin-bottom: 15px;
+        }
+
+        .style-item h3 {
+            color: #c3b091;
+            margin-bottom: 8px;
+        }
+
+        /* FAVORITE SONG */
+        .favorite {
+            max-width: 950px;
+            margin: auto;
+            background: #556b2f;
+            color: white;
+            padding: 50px;
+            border-radius: 10px;
+            border: 8px solid #171813;
+            box-shadow: 12px 12px 0 #b86b35;
+        }
+
+        .favorite-image {
+            width: 100%;
+            max-width: 500px;
+            height: 280px;
+            display: block;
+            margin: 0 auto 30px auto;
+            object-fit: cover;
+            border: 5px solid #171813;
+            border-radius: 8px;
+        }
+
+        .favorite h2 {
+            color: #f1eadb;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .favorite p {
+            font-size: 1.15rem;
+            margin-bottom: 15px;
+        }
+
+        .song-name {
+            display: inline-block;
+            background: #c3b091;
+            color: #171813;
+            padding: 10px 22px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            border-radius: 4px;
+            border: 2px solid #171813;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #171813;
+            color: #c3b091;
+            text-align: center;
+            padding: 35px 20px;
+            border-top: 5px solid #6b7b3a;
+        }
+
+        footer h2 {
+            color: #eee5cf;
+            margin-bottom: 10px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 750px) {
+
+            header h1 {
+                font-size: 3rem;
+            }
+
+            section {
+                padding: 60px 6%;
+            }
+
+            .content-box,
+            .content-box.reverse {
+                flex-direction: column;
+            }
+
+            .image-box {
+                width: 100%;
+                flex: none;
+            }
+
+            .favorite {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#music">Music</a></li>
+            <li><a href="#style">Style</a></li>
+            <li><a href="#favorite">My Favorite Song</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HOME -->
+    <header id="home">
+        <div class="hero">
+
+            <div class="patch">
+                ENGLISH CLASS PRESENTATION
+            </div>
+
+            <h1>Oliver Tree</h1>
+
+            <div class="jacket-line"></div>
+
+            <p>Music, Personality and a Unique Style</p>
+
+        </div>
+    </header>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="section-title">
+            <h2>About Oliver Tree</h2>
+            <span></span>
+        </div>
+
+
+        <!-- FIRST PARAGRAPH -->
+        <div class="content-box">
+
+            <div class="content-text">
+                <p>
+                    Hello everyone. Today I’m going to talk about
+                    <span class="highlight">Oliver Tree</span>.
+                </p>
+
+                <p>
+                    Oliver Tree was an American singer, songwriter,
+                    and musician.
+                </p>
+            </div>
+
+            <div class="image-box">
+
+                <!-- CHANGE THIS IMAGE -->
+                <img src="c:\Users\Alain\Desktop\olivertree\OIP.ngtkpXfWdlal3R_IBi89cQHaLH" alt="Oliver Tree">
+
+                <div class="image-label">
+                    Oliver Tree
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SECOND PARAGRAPH -->
+        <div class="content-box reverse">
+
+            <div class="content-text">
+
+                <p>
+                    He was born on June 29, 1993, in Santa Cruz,
+                    California.
+                </p>
+
+                <p>
+                    He became known for his unique style, funny
+                    personality, and unusual music videos.
+                </p>
+
+            </div>
+
+            <div class="image-box">
+
+                <!-- CHANGE THIS IMAGE -->
+                <img src="c:\Users\Alain\Desktop\olivertree\8191XR6HfyL.jpg" alt="Oliver Tree in California">
+
+              
+            </div>
+
+        </div>
+
+
+        <!-- THIRD PARAGRAPH -->
+        <div class="content-box">
+
+            <div class="content-text">
+
+                <p>
+                    His music combines different styles, such as
+                    alternative, pop, and electronic music.
+                </p>
+
+                <p>
+                    Some of his most popular songs are
+                    <span class="highlight">
+                        “Hurt,” “Life Goes On,”
+                    </span>
+                    and
+                    <span class="highlight">
+                        “Miss You.”
+                    </span>
+                </p>
+
+            </div>
+
+            <div class="image-box">
+
+                <!-- CHANGE THIS IMAGE -->
+                <img src="c:\Users\Alain\Desktop\olivertree\OIP.sWuAIkfz7QUxgAyi0e3h6wHaE8">
+
+                <div class="image-label">
+                    Music
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MUSIC -->
+    <section id="music">
+
+        <div class="section-title">
+            <h2>Popular Songs</h2>
+            <span></span>
+        </div>
+
+        <div class="music-grid">
+
+            <div class="music-card">
+
+                <!-- CHANGE THIS IMAGE -->
+                <img
+                    src="hurt.jpg"
+                    alt="Hurt"
+                    class="music-image"
+                >
+
+                <h3>Hurt</h3>
+
+                <p>
+                    One of Oliver Tree's most recognizable songs.
+                </p>
+
+            </div>
+
+
+            <div class="music-card">
+
+                <!-- CHANGE THIS IMAGE -->
+                <img
+                    src="life-goes-on.jpg"
+                    alt="Life Goes On"
+                    class="music-image"
+                >
+
+                <h3>Life Goes On</h3>
+
+                <p>
+                    A popular song with a catchy and energetic sound.
+                </p>
+
+            </div>
+
+
+            <div class="music-card">
+
+                <!-- CHANGE THIS IMAGE -->
+                <img
+                    src="miss-you.jpg"
+                    alt="Miss You"
+                    class="music-image"
+                >
+
+                <h3>Miss You</h3>
+
+                <p>
+                    A song that became very popular internationally.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STYLE -->
+    <section id="style">
+
+        <div class="section-title">
+            <h2>His Unique Style</h2>
+            <span></span>
+        </div>
+
+        <div class="style-box">
+            
+            <div class="style-item">
+
+                <!-- CHANGE THIS IMAGE -->
+                <img
+                    src="c:\Users\Alain\Desktop\olivertree\90edebdd-c153-4daf-beb8-0448fa6e4492.jpg"
+                    alt="Oliver Tree haircut"
+                    class="style-image"
+                >
+
+                <h3>Bowl Haircut</h3>
+
+                <p>
+                    His bowl haircut became one of his most
+                    recognizable features.
+                </p>
+
+            </div>
+
+
+            <div class="style-item">
+
+                <!-- CHANGE THIS IMAGE -->
+                <img
+                    src="c:\Users\Alain\Desktop\olivertree\bounce-oliver-tree-pink-suit-1.jpg"
+                    alt="Oliver Tree colorful clothes"
+                    class="style-image"
+                >
+
+                <h3>Colorful Clothes</h3>
+
+                <p>
+                    He often used unusual and colorful outfits
+                    in his style.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FAVORITE SONG -->
+    <section id="favorite">
+
+        <div class="section-title">
+            <h2>My Favorite Song</h2>
+            <span></span>
+        </div>
+
+        <div class="favorite">
+
+            <!-- CHANGE THIS IMAGE -->
+            <img
+                src="c:\Users\Alain\Desktop\olivertree\OJMPwozTYr1VbenSiTJovvvxiBJMtp.jpg"
+                alt="Alien Boy"
+                class="favorite-image"
+            >
+
+            <div class="song-name">
+                ALIEN BOY
+            </div>
+
+            <h2>Why I Like It</h2>
+
+            <p>
+                Oliver Tree is one of my favorite artists because
+                I really like his music and his unique personality.
+            </p>
+
+            <p>
+                My favorite song is <strong>“Alien Boy.”</strong>
+                The song is about feeling like an outsider and
+                being different from other people.
+            </p>
+
+            <p>
+                I like it because it has a message about accepting
+                yourself and being proud of who you are.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <h2>Thank You!</h2>
+
+        <p>
+            Thank you for listening to my presentation about
+            Oliver Tree.
+        </p>
+
+    </footer>
+
+</body>
+</html>
